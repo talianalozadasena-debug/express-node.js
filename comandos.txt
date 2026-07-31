@@ -3,3 +3,12 @@ node--watch app.js
 
 OTRO COMANDO PARA INICIAR EL SERVIDOR,configurando package.json
 npm run dev
+
+COMANDO GIT 
+VER CONFIGURACION:
+git config --glogal --list
+git config --list
+
+BORAR LAS CONFIGURACIONES
+git config --glogal --unset user.name
+git config --glogal --unset user.email
