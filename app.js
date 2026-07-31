@@ -1,11 +1,16 @@
-import express from 'express';
-const app = express(); 
-const port = process.env.PUERTO || 3000;
+import express from 'express'
+//leer el archivo .env
+import {configDotenv}from "dotenv"
+configDotenv()
+const app = express()
+const puerto = process.env.PUERTO || 3000
 
- app.get("/", (_, res) => {
-     res.send('Aprendiendo express,ficha 3407181');
-});
+ app.get("/",function (req, res){
+     res.send('Aprendiendo express,ficha 3407181 31 de julio')
+})
 
-app.listen(port, () => {
-     console.log( `Servidor en funcionamiento en el puerto: `); 
-}); 
+//otro endpoint
+
+app.listen(puerto, function (){
+     console.log( `Servidor en funcionamiento en el puerto ${puerto}`) 
+}) 
