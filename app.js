@@ -1,11 +1,11 @@
 const express = require('express'); 
 const app = express(); 
- const port = 3000;
+const PUERTO = 3030;
 
  app.get("/", (_, res) => {
      res.send('Aprendiendo express,ficha 3407181');
 });
 
-app.listen(port, () => {
-     console.log( `Servidor:http://localhost:${port}`); 
+app.listen(PUERTO, () => {
+     console.log( `Servidor:http://localhost:${PUERTO}`); 
 }); 
