@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-const PUERTO = process.env.PUERTO || 3030;
+const PUERTO = process.env.PUERTO || 3000;
 
 // Middleware para parsear JSON
 app.use(express.json());
