@@ -1,0 +1,18 @@
+[
+    {
+        "dni": 1,
+        "nombre": "Taliana",
+        "apellido": "Lozada",
+        "correo": "taliana.lozada@example.com",
+        "imagen": "foto1.jpg"
+    },
+
+
+     {
+        "dni": 2,
+        "nombre": "ana",
+        "apellido": "Lopez",
+        "correo": "ana.lopez@example.com",
+        "imagen": "foto2.jpg"
+    }
+]
