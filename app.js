@@ -7,9 +7,12 @@ const sistemaArchivo = require("fs")
 const ruta = require("path")
 const { json } = require("stream/consumers")
 const rutaArchivoJson = ruta.join(__dirname, "datos.json")
+//importar libreria para subir archivos
+const multer=requiere("multer")
 
 //middleware body-parse
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 //endpoint raiz
 app.get("/", function(req, res){
