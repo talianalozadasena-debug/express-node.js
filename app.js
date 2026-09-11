@@ -1,11 +1,15 @@
 const express = require("express")
 const app = express()
 require("dotenv/config")
-const puerto = process.env.PUERTO || 3000
+const puerto = process.env.PORT || 3000
 //configurar para la lectura del archivo
 const sistemaArchivo = require("fs")
 const ruta = require("path")
+const { json } = require("stream/consumers")
 const rutaArchivoJson = ruta.join(__dirname, "datos.json")
+
+//middleware body-parse
+app.use(express.json())
 
 //endpoint raiz
 app.get("/", function(req, res){
@@ -25,6 +29,7 @@ app.get("/api/aprendices", (req, res) => {
 })
 //
 app.post("/api/aprendices", (req, res) => {
+  //validar que se envien los datos
   const nuevoAprendiz = req.body
   //datos vienen del archivo
   sistemaArchivo.readFile(rutaArchivoJson, "utf-8", (error, datos)=>{
@@ -35,10 +40,11 @@ app.post("/api/aprendices", (req, res) => {
     //agregar el nuevo aprendiz
     ListaAprendices.push(nuevoAprendiz)
     //escribir el nuevo archivo
-    sistemaArchivo.writeFile(rutaArchivoJson, JSON.stringify(ListaAprendices), null, 2, (error) =>{
+    sistemaArchivo.writeFile(rutaArchivoJson, JSON.stringify(ListaAprendices, null, 2),(error) =>{
       if(error){
-        res.status(500).json({Error: "No se puede registrar el n uevo aprendiz"})
+        res.status(500).json({Error: "No se puede registrar el nuevo aprendiz"})
       }
+      res.status(201).json({mensaje: "Aprendiz Creado con exito"})
     })
   })
 })
