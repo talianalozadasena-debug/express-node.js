@@ -14,7 +14,7 @@ const listarUsuarios = async (req, res) => {
 const crearUsuario = async (req, res) => {
     try {
         const { email, username, clave, foto } = req.body;
-        const nuevoUsuario = await crear(email, username, clave, foto); r
+        const nuevoUsuario = await crear(email, username, clave, foto); 
         res.status(201).json({ nuevoUsuario });
     } catch (error) {
         res.status(500).json({ "Error-mensaje": error.message });
